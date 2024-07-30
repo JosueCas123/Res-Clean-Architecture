@@ -22,10 +22,11 @@ export class Server {
     }
     
     async start() {
-
+        //*Middlewares
+        this.app.use(express.json());
+        this.app.use(express.urlencoded({extended:true}));
         //*Routes
         // Recibimos el objeto Router de express y lo usamos en la aplicacion
-        this.app.use(express.json());
         this.app.use(this.routes);
         
     
